@@ -11,7 +11,7 @@ df = pd.read_csv('fcc-forum-pageviews.csv', parse_dates=['date'], index_col='dat
 df = df[(df['value'] >= df['value'].quantile(0.025)) & (df['value'] <= df['value'].quantile(0.975))]
 
 
-
+# Objetivo: Visualizar a evolução das visitas diárias ao fórum.
 def draw_line_plot():
     # Criar a figura e os eixos
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -31,6 +31,7 @@ def draw_line_plot():
     fig.savefig('line_plot.png')
     return fig
 
+# Objetivo: Mostrar a média de visitas diárias por mês agrupadas por ano.
 def draw_bar_plot():
     # Copiar e modificar os dados para o gráfico de barras mensal
     df_bar = df.copy()
@@ -55,6 +56,7 @@ def draw_bar_plot():
     fig.savefig('bar_plot.png')
     return fig
 
+# Objetivo: Comparar a distribuição de visitas ao longo dos anos e meses.
 def draw_box_plot():
     # Preparar os dados para os gráficos box plot (já feito no boilerplate)
     df_box = df.copy()
